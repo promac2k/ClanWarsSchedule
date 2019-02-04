@@ -8,6 +8,22 @@
 
 #ce ----------------------------------------------------------------------------
 
+Global $g_frmGuiDebug = 0
+
+
+Func GuiDebug()
+
+	$g_frmGuiDebug = GUICreate("DEBUG-IMAGE ONSCREEN @ PROMAC 2018 ", 860, 732, -1, -1, -1, $WS_EX_LAYERED)
+	GUISetIcon(@ScriptDir & "\MainCode\Lib\ImageSearch.dll", 1)
+	$g_lblDebugOnScreen = GUICtrlCreateLabel(" ::INFO:: ", 10, 10, -1, -1, -1, $GUI_WS_EX_PARENTDRAG)
+	GUISetBkColor(0xABCDEF)
+	_WinAPI_SetLayeredWindowAttributes($g_frmGuiDebug, 0xABCDEF)
+	;GUISetStyle($WS_POPUP, -1, $g_frmGuiDebug)
+	GUISetState(@SW_SHOW)
+	WinSetOnTop($g_frmGuiDebug, "", $WINDOWS_ONTOP)
+	MoveGUIDebug()
+EndFunc   ;==>GuiDebug
+
 
 Func _UIA_Debug($g_hControl, $tX, $tY, $TilePath, $color = 0x0000FF, $PenWidth = 4)
 
