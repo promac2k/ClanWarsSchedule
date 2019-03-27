@@ -14,7 +14,7 @@ Func InitialGUI()
 	; #############  UI FORM  #############
 
 	; create the Main form
-	$g_frmWarScheduler = GUICreate("CoC War Scheduler v1.1.0", 381, 441, 960, 276)
+	$g_frmWarScheduler = GUICreate("CoC War Scheduler v1.1.1", 381, 441, 960, 276)
 	GUISetIcon(@ScriptDir & "\MainCode\Lib\ImageSearch.dll", 1)
 
 	; Creat a settings group
@@ -89,15 +89,15 @@ Func InitialGUI()
 	; #############   UI END   #############
 EndFunc   ;==>InitialGUI
 
-Func GuiDebug()
+;~ Func GuiDebug()
 
-	$g_frmGuiDebug = GUICreate("DEBUG-IMAGE ONSCREEN @ PROMAC 2018 ", 860, 732, -1, -1, -1, $WS_EX_LAYERED)
-	GUISetIcon(@ScriptDir & "\MainCode\Lib\ImageSearch.dll", 1)
-	$g_lblDebugOnScreen = GUICtrlCreateLabel(" ::INFO:: ", 10, 10, -1, -1, -1, $GUI_WS_EX_PARENTDRAG)
-	GUISetBkColor(0xABCDEF)
-	_WinAPI_SetLayeredWindowAttributes($g_frmGuiDebug, 0xABCDEF)
-	;GUISetStyle($WS_POPUP, -1, $g_frmGuiDebug)
-	GUISetState(@SW_SHOW)
-	WinSetOnTop($g_frmGuiDebug, "", $WINDOWS_ONTOP)
+;~ 	$g_frmGuiDebug = GUICreate("DEBUG-IMAGE ONSCREEN @ PROMAC 2018 ", 860, 732, -1, -1, -1, $WS_EX_LAYERED)
+;~ 	GUISetIcon(@ScriptDir & "\MainCode\Lib\ImageSearch.dll", 1)
+;~ 	$g_lblDebugOnScreen = GUICtrlCreateLabel(" ::INFO:: ", 10, 10, -1, -1, -1, $GUI_WS_EX_PARENTDRAG)
+;~ 	GUISetBkColor(0xABCDEF)
+;~ 	_WinAPI_SetLayeredWindowAttributes($g_frmGuiDebug, 0xABCDEF)
+;~ 	;GUISetStyle($WS_POPUP, -1, $g_frmGuiDebug)
+;~ 	GUISetState(@SW_SHOW)
+;~ 	WinSetOnTop($g_frmGuiDebug, "", $WINDOWS_ONTOP)
 
-EndFunc   ;==>GuiDebug
+;~ EndFunc   ;==>GuiDebug

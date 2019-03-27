@@ -63,7 +63,7 @@ Func OpenEmulatorMEmu()
 		SetLog("Emulator Size: " & "[W]: " & $aPosClient[2] & "  [H]: " & $aPosClient[3])
 	EndIf
 
-	If Int($aPosClient[2]) <> 860 Or Int($aPosClient[3]) <> 732 Then
+	If Int($aPosClient[2]) <> $g_aEmulatorSize[0] Or Int($aPosClient[3]) <> $g_aEmulatorSize[1] Then
 		SetLog("Emulator ScreenSizes ERROR!!")
 		Return False
 	EndIf

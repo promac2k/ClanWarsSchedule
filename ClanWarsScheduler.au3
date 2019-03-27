@@ -7,17 +7,18 @@
 	Template AutoIt script.
 
 #ce ----------------------------------------------------------------------------
-#pragma compile(Out, ClanWarsScheduler.exe)
-#pragma compile(FileDescription, Clan War Scheduler)
-#pragma compile(LegalCopyright, © ProMac)
-#pragma compile(ProductVersion, 1.1.0)
-#pragma compile(FileVersion, 1.1.0)
-#pragma compile(Icon, "MainCode\Images\Main.ico")
-#Au3Stripper_On
+#RequireAdmin
+#AutoIt3Wrapper_Icon=MainCode\Images\Main.ico
 #AutoIt3Wrapper_Compression=4
 #AutoIt3Wrapper_Run_Au3Stripper=y
 #Au3Stripper_Parameters=/rsln /MI=3 /mo
-#RequireAdmin
+#pragma compile(Out, ClanWarsScheduler.exe)
+#pragma compile(FileDescription, Clan War Scheduler)
+#pragma compile(LegalCopyright, © ProMac)
+#pragma compile(ProductVersion, 1.1.1)
+#pragma compile(FileVersion, 1.1.1)
+#pragma compile(Icon, "MainCode\Images\Main.ico")
+#Au3Stripper_On
 
 ; Enforce variable declarations
 Opt("MustDeclareVars", 1)
@@ -44,6 +45,7 @@ HotKeySet("{ESC}", "Terminate")
 #include <ScreenCapture.au3>
 #include <GuiMenu.au3>
 #include <GuiComboBox.au3>
+#include <WinAPISys.au3>
 
 ; GLOBALS
 
@@ -73,6 +75,7 @@ Global $g_hControl = 0
 Global $g_sTitleParentWindow = ""
 Global $g_hBitmap = 0
 Global $g_iEmulatorOffset[2] = [-1, -1]
+Global $g_aEmulatorSize[2] = [860, 644]
 
 ; Clan Wars Information
 Global $g_iClanWarsParticipants = 0

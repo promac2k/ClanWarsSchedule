@@ -13,7 +13,7 @@ Global $g_frmGuiDebug = 0
 
 Func GuiDebug()
 
-	$g_frmGuiDebug = GUICreate("DEBUG-IMAGE ONSCREEN @ PROMAC 2018 ", 860, 732, -1, -1, -1, $WS_EX_LAYERED)
+	$g_frmGuiDebug = GUICreate("DEBUG-IMAGE ONSCREEN @ PROMAC 2018 ", $g_aEmulatorSize[0], $g_aEmulatorSize[1], -1, -1, -1, $WS_EX_LAYERED)
 	GUISetIcon(@ScriptDir & "\MainCode\Lib\ImageSearch.dll", 1)
 	$g_lblDebugOnScreen = GUICtrlCreateLabel(" ::INFO:: ", 10, 10, -1, -1, -1, $GUI_WS_EX_PARENTDRAG)
 	GUISetBkColor(0xABCDEF)
@@ -27,7 +27,7 @@ EndFunc   ;==>GuiDebug
 
 Func _UIA_Debug($g_hControl, $tX, $tY, $TilePath, $color = 0x0000FF, $PenWidth = 4)
 
-	Local $Handle = $g_hControl, $Xaxis = $tX , $Yaxis = $tY
+	Local $Handle = $g_hControl, $Xaxis = $tX, $Yaxis = $tY
 
 	Local $hImage = _GDIPlus_ImageLoadFromFile($TilePath)
 	Local $tWidth = _GDIPlus_ImageGetWidth($hImage)
@@ -43,7 +43,7 @@ Func _UIA_Debug($g_hControl, $tX, $tY, $TilePath, $color = 0x0000FF, $PenWidth =
 		_WinAPI_RedrawWindow($Handle, 0, 0, $RDW_INVALIDATE + $RDW_ALLCHILDREN)
 		MoveGUIDebug()
 		If $g_sEmulatorName = "MEmu" Then $tX = $tX + $g_iEmulatorOffset[0]
-		If $g_sEmulatorName = "BlueStacks3" Then  $tX = $tX + Abs($g_iEmulatorOffset[0] - 6)
+		If $g_sEmulatorName = "BlueStacks3" Then $tX = $tX + Abs($g_iEmulatorOffset[0] - 6)
 		$tY = $tY + $g_iEmulatorOffset[1]
 	EndIf
 	Local $hDC, $hPen, $obj_orig, $x1, $x2, $y1, $y2
@@ -66,7 +66,7 @@ Func _UIA_Debug($g_hControl, $tX, $tY, $TilePath, $color = 0x0000FF, $PenWidth =
 	_WinAPI_DrawLine($hDC, $x2, $y1, $x2, $y2) ; vertical down on right
 	_WinAPI_DrawLine($hDC, $x2, $y2, $x1, $y2) ; horizontal to left right
 	_WinAPI_DrawLine($hDC, $x1, $y2, $x1, $y1) ; vertical up on left
-	_WinAPI_DrawText($hDC, $sFileName & "(" &$Xaxis& "," & $Yaxis &")", $g_tRECT, $DT_LEFT)
+	_WinAPI_DrawText($hDC, $sFileName & "(" & $Xaxis & "," & $Yaxis & ")", $g_tRECT, $DT_LEFT)
 
 
 	; clear resources
@@ -81,7 +81,7 @@ EndFunc   ;==>_UIA_Debug
 
 Func MoveGUIDebug()
 
-	If $g_frmGuiDebug = 0 then return
+	If $g_frmGuiDebug = 0 Then Return
 	Local $aPos = WinGetPos($g_hControl, "")
 	If $g_sEmulatorName = "BlueStacks3" Then WinMove($g_frmGuiDebug, "", $aPos[0] - Abs($g_iEmulatorOffset[0] - 6), _
 			$aPos[1] - $g_iEmulatorOffset[1], _
@@ -93,7 +93,7 @@ Func MoveGUIDebug()
 			732 + $g_iEmulatorOffset[1] + Abs($g_iEmulatorOffset[1] - 29))
 
 	If $g_sEmulatorName = "Nox" Then WinMove($g_frmGuiDebug, "", $aPos[0] - $g_iEmulatorOffset[0], _
-			($aPos[1] - $g_iEmulatorOffset[1]) + 4 , _
+			($aPos[1] - $g_iEmulatorOffset[1]) + 4, _
 			860 + $g_iEmulatorOffset[0] + Abs($g_iEmulatorOffset[0] - 6), _
 			732 + $g_iEmulatorOffset[1] + Abs($g_iEmulatorOffset[1] - 29))
 

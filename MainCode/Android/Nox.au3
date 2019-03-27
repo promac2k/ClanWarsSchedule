@@ -44,9 +44,9 @@ Func OpenEmulatorNox()
 			Setlog("[" & $i & "] Nox Child Window detected: " & $g_hControl)
 			ExitLoop
 		EndIf
-		if $i = 10 Then
+		If $i = 10 Then
 			$g_hControl = ControlGetHandle($g_hWnd, "QWidgetClassWindow", "[CLASS:Qt5QWindowIcon; INSTANCE:2]")
-		Endif
+		EndIf
 	Next
 
 	_ConsoleWrite('+ Window Handle: ' & $g_hWnd)
@@ -69,7 +69,7 @@ Func OpenEmulatorNox()
 		SetLog("Emulator Size: " & "[W]: " & $aPosClient[2] & "  [H]: " & $aPosClient[3])
 	EndIf
 
-	If Int($aPosClient[2]) <> 860 Or Int($aPosClient[3]) <> 732 Then
+	If Int($aPosClient[2]) <> $g_aEmulatorSize[0] Or Int($aPosClient[3]) <> $g_aEmulatorSize[1] Then
 		SetLog("Emulator ScreenSizes ERROR!!")
 		Return False
 	EndIf
