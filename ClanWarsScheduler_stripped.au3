@@ -2,15 +2,13 @@
 #pragma compile(Out, ClanWarsScheduler.exe)
 #pragma compile(FileDescription, Clan War Scheduler)
 #pragma compile(LegalCopyright, © ProMac)
-#pragma compile(ProductVersion, 1.1.0)
-#pragma compile(FileVersion, 1.1.0)
+#pragma compile(ProductVersion, 1.1.1)
+#pragma compile(FileVersion, 1.1.1)
 #pragma compile(Icon, "MainCode\Images\Main.ico")
-#Region
 #AutoIt3Wrapper_Icon=MainCode\Images\Main.ico
 #AutoIt3Wrapper_Compression=4
 #AutoIt3Wrapper_Run_Au3Stripper=y
 #Au3Stripper_Parameters=/rsln /MI=3 /mo
-#EndRegion
 #Au3Stripper_On
 Opt("MustDeclareVars", 1)
 HotKeySet("{ESC}", "Terminate")
@@ -18101,7 +18099,7 @@ $filename = @ScriptDir & "\Debug\" & "Main_" & $g_cmbSelectedInstance & "_GetSto
 _GDIPlus_ImageSaveToFile($hBitmap_full, $filename)
 _GDIPlus_BitmapDispose($hBitmap_full)
 EndIf
-$hBitmap_full = _CaptureRegion($g_hControl, 230, 535, 320, 640)
+$hBitmap_full = _CaptureRegion($g_hControl, 145, 400, 250, 550)
 If $hBitmap_full = -1 Then Return False
 $PathTile = @ScriptDir & "\MainCode\Images\ZoomOut\ButtonStone.png"
 $filename = @ScriptDir & "\Debug\" & $dd & "_" & $g_cmbSelectedInstance & "_GetStones_.png"
@@ -18798,7 +18796,7 @@ EndIf
 EndIf
 Return $aResult
 EndFunc
-Func _CaptureRegion($hWndChildWindow, $iLeft = 0, $iTop = 0, $iRight = 860, $iBottom = 732)
+Func _CaptureRegion($hWndChildWindow, $iLeft = 0, $iTop = 0, $iRight = 860, $iBottom = 644)
 If Not _WinAPI_IsWindow($hWndChildWindow) Then
 SetLog("$hWndChildWindow is not a valid window")
 SetLog("Trying to get a valid window")
@@ -19094,9 +19092,9 @@ EndFunc
 Func MoveGUIDebug()
 If $g_frmGuiDebug = 0 Then Return
 Local $aPos = WinGetPos($g_hControl, "")
-If $g_sEmulatorName = "BlueStacks3" Then WinMove($g_frmGuiDebug, "", $aPos[0] - Abs($g_iEmulatorOffset[0] - 6),  $aPos[1] - $g_iEmulatorOffset[1],  860 + $g_iEmulatorOffset[0] - Abs($g_iEmulatorOffset[0] - 6),  732 + $g_iEmulatorOffset[1] + Abs($g_iEmulatorOffset[1] - 29))
-If $g_sEmulatorName = "MEmu" Then WinMove($g_frmGuiDebug, "", $aPos[0] - $g_iEmulatorOffset[0],  $aPos[1] - $g_iEmulatorOffset[1],  860 + $g_iEmulatorOffset[0] + Abs($g_iEmulatorOffset[0] - 6),  732 + $g_iEmulatorOffset[1] + Abs($g_iEmulatorOffset[1] - 29))
-If $g_sEmulatorName = "Nox" Then WinMove($g_frmGuiDebug, "", $aPos[0] - $g_iEmulatorOffset[0],  ($aPos[1] - $g_iEmulatorOffset[1]) + 4,  860 + $g_iEmulatorOffset[0] + Abs($g_iEmulatorOffset[0] - 6),  732 + $g_iEmulatorOffset[1] + Abs($g_iEmulatorOffset[1] - 29))
+If $g_sEmulatorName = "BlueStacks3" Then WinMove($g_frmGuiDebug, "", $aPos[0] - Abs($g_iEmulatorOffset[0] - 6),  $aPos[1] - $g_iEmulatorOffset[1],  $g_aEmulatorSize[0] + $g_iEmulatorOffset[0] - Abs($g_iEmulatorOffset[0] - 6),  $g_aEmulatorSize[1] + $g_iEmulatorOffset[1] + Abs($g_iEmulatorOffset[1] - 29))
+If $g_sEmulatorName = "MEmu" Then WinMove($g_frmGuiDebug, "", $aPos[0] - $g_iEmulatorOffset[0],  $aPos[1] - $g_iEmulatorOffset[1],  $g_aEmulatorSize[0] + $g_iEmulatorOffset[0] + Abs($g_iEmulatorOffset[0] - 6),  $g_aEmulatorSize[1] + $g_iEmulatorOffset[1] + Abs($g_iEmulatorOffset[1] - 29))
+If $g_sEmulatorName = "Nox" Then WinMove($g_frmGuiDebug, "", $aPos[0] - $g_iEmulatorOffset[0],  ($aPos[1] - $g_iEmulatorOffset[1]) + 4,  $g_aEmulatorSize[0] + $g_iEmulatorOffset[0] + Abs($g_iEmulatorOffset[0] - 6),  $g_aEmulatorSize[1] + $g_iEmulatorOffset[1] + Abs($g_iEmulatorOffset[1] - 29))
 EndFunc
 Func CheckPreRequisites()
 If _Singleton(@ScriptName, 1) = 0 Then
@@ -19143,7 +19141,7 @@ ConsoleWrite($Date & " " & $Time & " - " & $msg & @CRLF )
 EndFunc
 Func InitialGUI()
 _GDIPlus_Startup()
-$g_frmWarScheduler = GUICreate("CoC War Scheduler v1.1.0", 381, 441, 960, 276)
+$g_frmWarScheduler = GUICreate("CoC War Scheduler v1.1.1", 381, 441, 960, 276)
 GUISetIcon(@ScriptDir & "\MainCode\Lib\ImageSearch.dll", 1)
 $grpSettings = GUICtrlCreateGroup("Settings", 5, 8, 370, 256)
 $g_MonthCal1 = GUICtrlCreateMonthCal(_NowCalcDate(), 16, 32, 229, 164)
@@ -19556,19 +19554,19 @@ GUICtrlSetData($g_bntGuiDebug, "OpenDebGUI")
 EndIf
 EndFunc
 Func Return2MainVillage($g_bDebug = False)
-Local $TilePath = @ScriptDir & "\MainCode\Images\MainWindow\Boat.png", $LogText = "Returning to Main Village!", $defSimilarity = 0.92, $IsToClick = True
-Return ImageDetection($g_hControl, 510, 35, 640, 210, $TilePath, $defSimilarity, $LogText, $IsToClick, 1500, $g_bDebug)
+Local $TilePath = @ScriptDir & "\MainCode\Images\MainWindow\Boat.png", $LogText = "Returning to Main Village!", $defSimilarity = 0.90, $IsToClick = True
+Return ImageDetection($g_hControl, 530, 35, 630, 210, $TilePath, $defSimilarity, $LogText, $IsToClick, 1500, $g_bDebug)
 EndFunc
 Func ClickClanWarsIcon($g_bDebug = False)
-Local $TilePath = @ScriptDir & "\MainCode\Images\\WarButton\ClanWarsIcon.png", $LogText = "Waiting for CoC Clan Wars Window!", $defSimilarity = 0.92, $IsToClick = True
-Return ImageDetection($g_hControl, 10, 490, 90, 651, $TilePath, $defSimilarity, $LogText, $IsToClick, 2500, $g_bDebug)
+Local $TilePath = @ScriptDir & "\MainCode\Images\WarButton\ClanWarsIcon.png", $LogText = "Waiting for CoC Clan Wars Window!", $defSimilarity = 0.92, $IsToClick = True
+Return ImageDetection($g_hControl, 10, 430, 90, 500, $TilePath, $defSimilarity, $LogText, $IsToClick, 2500, $g_bDebug)
 EndFunc
 Func IsClanWarsWindow($g_bDebug = False)
 Local $TilePath = @ScriptDir & "\MainCode\Images\WarWindow\IsWindow.png", $LogText = "CoC Clan Wars Window detected!", $defSimilarity = 0.92, $IsToClick = False
 If ImageDetection($g_hControl, 300, 270, 420, 340, $TilePath, $defSimilarity, $LogText, $IsToClick, 1500, $g_bDebug) = False Then
 $TilePath = @ScriptDir & "\MainCode\Images\WarWindow\ReportWindow.png"
 $LogText = "CoC Clan Wars Report Window detected!"
-Return ImageDetection($g_hControl, 350, 585, 500, 650, $TilePath, $defSimilarity, $LogText, $IsToClick, 1500, $g_bDebug)
+Return ImageDetection($g_hControl, 350, 585, 500, 644, $TilePath, $defSimilarity, $LogText, $IsToClick, 1500, $g_bDebug)
 Else
 Return True
 EndIf

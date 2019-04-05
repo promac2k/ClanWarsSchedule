@@ -224,13 +224,13 @@ Func StartClanWars($g_bDebug = False)
 EndFunc   ;==>StartClanWars
 
 Func Return2MainVillage($g_bDebug = False)
-	Local $TilePath = @ScriptDir & "\MainCode\Images\MainWindow\Boat.png", $LogText = "Returning to Main Village!", $defSimilarity = 0.92, $IsToClick = True
-	Return ImageDetection($g_hControl, 510, 35, 640, 210, $TilePath, $defSimilarity, $LogText, $IsToClick, 1500, $g_bDebug)
+	Local $TilePath = @ScriptDir & "\MainCode\Images\MainWindow\Boat.png", $LogText = "Returning to Main Village!", $defSimilarity = 0.90, $IsToClick = True
+	Return ImageDetection($g_hControl, 530, 35, 630, 210, $TilePath, $defSimilarity, $LogText, $IsToClick, 1500, $g_bDebug)
 EndFunc   ;==>Return2MainVillage
 
 Func ClickClanWarsIcon($g_bDebug = False)
-	Local $TilePath = @ScriptDir & "\MainCode\Images\\WarButton\ClanWarsIcon.png", $LogText = "Waiting for CoC Clan Wars Window!", $defSimilarity = 0.92, $IsToClick = True
-	Return ImageDetection($g_hControl, 10, 490, 90, 651, $TilePath, $defSimilarity, $LogText, $IsToClick, 2500, $g_bDebug)
+	Local $TilePath = @ScriptDir & "\MainCode\Images\WarButton\ClanWarsIcon.png", $LogText = "Waiting for CoC Clan Wars Window!", $defSimilarity = 0.92, $IsToClick = True
+	Return ImageDetection($g_hControl, 10, 430, 90, 500, $TilePath, $defSimilarity, $LogText, $IsToClick, 2500, $g_bDebug)
 EndFunc   ;==>ClickClanWarsIcon
 
 Func IsClanWarsWindow($g_bDebug = False)
@@ -238,7 +238,7 @@ Func IsClanWarsWindow($g_bDebug = False)
 	If ImageDetection($g_hControl, 300, 270, 420, 340, $TilePath, $defSimilarity, $LogText, $IsToClick, 1500, $g_bDebug) = False Then
 		$TilePath = @ScriptDir & "\MainCode\Images\WarWindow\ReportWindow.png"
 		$LogText = "CoC Clan Wars Report Window detected!"
-		Return ImageDetection($g_hControl, 350, 585, 500, 650, $TilePath, $defSimilarity, $LogText, $IsToClick, 1500, $g_bDebug)
+		Return ImageDetection($g_hControl, 350, 585, 500, 644, $TilePath, $defSimilarity, $LogText, $IsToClick, 1500, $g_bDebug)
 	Else
 		Return True
 	EndIf

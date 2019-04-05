@@ -151,7 +151,7 @@ Func GetStones($g_bDebug = False)
 		_GDIPlus_BitmapDispose($hBitmap_full)
 	EndIf
 
-	$hBitmap_full = _CaptureRegion($g_hControl, 230, 535, 320, 640)
+	$hBitmap_full = _CaptureRegion($g_hControl, 145, 400, 250, 550)
 	If $hBitmap_full = -1 Then Return False
 	$PathTile = @ScriptDir & "\MainCode\Images\ZoomOut\ButtonStone.png"
 	$filename = @ScriptDir & "\Debug\" & $dd & "_" & $g_cmbSelectedInstance & "_GetStones_.png"
