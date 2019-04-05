@@ -85,17 +85,17 @@ Func MoveGUIDebug()
 	Local $aPos = WinGetPos($g_hControl, "")
 	If $g_sEmulatorName = "BlueStacks3" Then WinMove($g_frmGuiDebug, "", $aPos[0] - Abs($g_iEmulatorOffset[0] - 6), _
 			$aPos[1] - $g_iEmulatorOffset[1], _
-			860 + $g_iEmulatorOffset[0] - Abs($g_iEmulatorOffset[0] - 6), _
-			732 + $g_iEmulatorOffset[1] + Abs($g_iEmulatorOffset[1] - 29))
+			$g_aEmulatorSize[0] + $g_iEmulatorOffset[0] - Abs($g_iEmulatorOffset[0] - 6), _
+			$g_aEmulatorSize[1] + $g_iEmulatorOffset[1] + Abs($g_iEmulatorOffset[1] - 29))
 	If $g_sEmulatorName = "MEmu" Then WinMove($g_frmGuiDebug, "", $aPos[0] - $g_iEmulatorOffset[0], _
 			$aPos[1] - $g_iEmulatorOffset[1], _
-			860 + $g_iEmulatorOffset[0] + Abs($g_iEmulatorOffset[0] - 6), _
-			732 + $g_iEmulatorOffset[1] + Abs($g_iEmulatorOffset[1] - 29))
+			$g_aEmulatorSize[0] + $g_iEmulatorOffset[0] + Abs($g_iEmulatorOffset[0] - 6), _
+			$g_aEmulatorSize[1] + $g_iEmulatorOffset[1] + Abs($g_iEmulatorOffset[1] - 29))
 
 	If $g_sEmulatorName = "Nox" Then WinMove($g_frmGuiDebug, "", $aPos[0] - $g_iEmulatorOffset[0], _
 			($aPos[1] - $g_iEmulatorOffset[1]) + 4, _
-			860 + $g_iEmulatorOffset[0] + Abs($g_iEmulatorOffset[0] - 6), _
-			732 + $g_iEmulatorOffset[1] + Abs($g_iEmulatorOffset[1] - 29))
+			$g_aEmulatorSize[0] + $g_iEmulatorOffset[0] + Abs($g_iEmulatorOffset[0] - 6), _
+			$g_aEmulatorSize[1] + $g_iEmulatorOffset[1] + Abs($g_iEmulatorOffset[1] - 29))
 
 EndFunc   ;==>MoveGUIDebug
 

@@ -87,7 +87,7 @@ Func ImageSearch(ByRef $hBitmap, $sPathTile = @ScriptDir & "\Debug\Tile.png", $d
 
 EndFunc   ;==>ImageSearch
 
-Func _CaptureRegion($hWndChildWindow, $iLeft = 0, $iTop = 0, $iRight = 860, $iBottom = 732)
+Func _CaptureRegion($hWndChildWindow, $iLeft = 0, $iTop = 0, $iRight = 860, $iBottom = 644)
 
 	If Not _WinAPI_IsWindow($hWndChildWindow) Then
 		SetLog("$hWndChildWindow is not a valid window")
