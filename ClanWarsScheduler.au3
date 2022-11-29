@@ -10,8 +10,8 @@
 #pragma compile(Out, ClanWarsScheduler.exe)
 #pragma compile(FileDescription, Clan War Scheduler)
 #pragma compile(LegalCopyright, © ProMac)
-#pragma compile(ProductVersion, 1.1.0)
-#pragma compile(FileVersion, 1.1.0)
+#pragma compile(ProductVersion, 1.2.0)
+#pragma compile(FileVersion, 1.2.0)
 #pragma compile(Icon, "MainCode\Images\Main.ico")
 #Au3Stripper_On
 #AutoIt3Wrapper_Compression=4

@@ -14,7 +14,7 @@ Func InitialGUI()
 	; #############  UI FORM  #############
 
 	; create the Main form
-	$g_frmWarScheduler = GUICreate("CoC War Scheduler v1.1.0", 381, 441, 960, 276)
+	$g_frmWarScheduler = GUICreate("CoC War Scheduler v1.2.0", 381, 441, 960, 276)
 	GUISetIcon(@ScriptDir & "\MainCode\Lib\ImageSearch.dll", 1)
 
 	; Creat a settings group
