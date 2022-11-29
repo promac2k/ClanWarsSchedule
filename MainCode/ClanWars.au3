@@ -51,7 +51,7 @@ Func StartClanWars($g_bDebug = False)
 
 	; ONSCREEN DEBUG - OPEN
 	If $g_bDebug And $g_frmGuiDebug = 0 Then
-		ConsoleWrite("Opening debug GUI 860*644")
+		_ConsoleWrite("Opening debug GUI 860*644")
 		GuiDebug()
 		Sleep(200)
 		MoveGUIDebug()

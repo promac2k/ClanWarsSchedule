@@ -89,14 +89,14 @@ Func CloseEmulatorNox()
 	Local $aList = WinList("[Class:Qt5QWindowIcon]")
 	Local $CorrectPid = 0
 	For $i = 1 To $aList[0][0] Step 3
-		ConsoleWrite("[" & $i & "] $Title: " & $aList[$i][0] & " - Handle: " & $aList[$i][1] & " - State: " & WinGetState($aList[$i][1]) & @CRLF)
+		_ConsoleWrite("[" & $i & "] $Title: " & $aList[$i][0] & " - Handle: " & $aList[$i][1] & " - State: " & WinGetState($aList[$i][1]))
 		If $aList[$i + 2][0] = $g_sTitleParentWindow Then
 			$CorrectPid = $aList[$i][1]
-			ConsoleWrite("Correct PID: " & $aList[$i][1] & @CRLF)
+			_ConsoleWrite("Correct PID: " & $aList[$i][1])
 			ExitLoop
 		EndIf
 	Next
-	ConsoleWrite("Emulator PID: " & WinGetProcess($CorrectPid) & @CRLF)
+	_ConsoleWrite("Emulator PID: " & WinGetProcess($CorrectPid))
 	If ProcessClose(WinGetProcess($CorrectPid)) = 1 Then setlog("Nox Title: '" & $g_sTitleParentWindow & "' Closed!")
 	If @error Then
 		Switch @error

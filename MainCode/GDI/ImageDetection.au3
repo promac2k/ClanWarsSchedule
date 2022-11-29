@@ -66,7 +66,7 @@ Func ImageSearch(ByRef $hBitmap, $sPathTile = @ScriptDir & "\Debug\Tile.png", $d
 
 				SetLog("»»»» Returned " & Int($expRet[0]) & " image(s)")
 				For $i = 0 To Int($expRet[0]) - 1
-					If _GDIPlus_GraphicsDrawRect($hGraphics, $expRet[($i * 2) + 1] - $iWidth, $expRet[($i * 2) + 2] - $iHeight, $iWidth * 2, $iHeight * 2, $hPenLtGreen) = False Then ConsoleWrite("»»»» GDI Draw problem" & @CRLF)
+					If _GDIPlus_GraphicsDrawRect($hGraphics, $expRet[($i * 2) + 1] - $iWidth, $expRet[($i * 2) + 2] - $iHeight, $iWidth * 2, $iHeight * 2, $hPenLtGreen) = False Then _ConsoleWrite("»»»» GDI Draw problem")
 				Next
 
 				_GDIPlus_ImageSaveToFile($hBitmap, $filename)

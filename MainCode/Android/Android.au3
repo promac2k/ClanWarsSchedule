@@ -28,7 +28,7 @@ EndFunc   ;==>GetAllInstances
 Func OpenGame($g_sEmulatorName, $g_bDebug = False)
 	; 4 Attemps with a small delay , just in Case
 
-	ConsoleWrite("Open Game with Image detection")
+	_ConsoleWrite("Open Game with Image detection")
 	Local $TilePath = @ScriptDir & "\MainCode\Images\OpenCoC\GameIcon_" & $g_sEmulatorName & ".png", $LogText = "s] Waiting for CoC Main Window!", $defSimilarity = 0.92, $IsToClick = True
 
 	For $i = 0 To 3
@@ -69,7 +69,7 @@ EndFunc   ;==>_WinGetByPID
 Func MoveTo($g_hWnd, $iX, $iY)
 
 	; Move the Parent Window to ....
-	If WinMove($g_hWnd, "", $iX, $iY) = 0 Then ConsoleWrite('+ MoveTo, no window matches the criteria!' & @CRLF)
+	If WinMove($g_hWnd, "", $iX, $iY) = 0 Then _ConsoleWrite('+ MoveTo, no window matches the criteria!')
 
 EndFunc   ;==>MoveTo
 
@@ -88,7 +88,7 @@ Func Click_WinApi_Emulator($g_sEmulatorName, $iX, $iY, $iHowMany = 1, $iDelay = 
 		Local $hGraphics = _GDIPlus_ImageGetGraphicsContext($hBitmap_full)
 		If $hGraphics = -1 Then SetLog("»»»» GDI $hGraphics problem")
 
-		If _GDIPlus_GraphicsDrawRect($hGraphics, ($iX + $g_iEmulatorOffset[0]) - 2, ($iY + $g_iEmulatorOffset[1]) - 2, 4, 4, $hPenLtGreen) = False Then ConsoleWrite("»»»» GDI Draw problem" & @CRLF)
+		If _GDIPlus_GraphicsDrawRect($hGraphics, ($iX + $g_iEmulatorOffset[0]) - 2, ($iY + $g_iEmulatorOffset[1]) - 2, 4, 4, $hPenLtGreen) = False Then _ConsoleWrite("»»»» GDI Draw problem" )
 
 		_GDIPlus_ImageSaveToFile($hBitmap_full, $filename)
 
@@ -100,7 +100,7 @@ Func Click_WinApi_Emulator($g_sEmulatorName, $iX, $iY, $iHowMany = 1, $iDelay = 
 	For $i = 0 To $iHowMany - 1
 		; on Emulators we can't send a click to the ChildWindow only to Parent window and is necessary the Offset coordinates
 		If ControlClick($g_hWnd, "", "", "", 1, $iX + $g_iEmulatorOffset[0], $iY + $g_iEmulatorOffset[1]) = 0 Then
-			ConsoleWrite('+ ControlClick, failed!' & @CRLF)
+			_ConsoleWrite('+ ControlClick, failed!')
 			ExitLoop
 		EndIf
 		Sleep($iDelay)
@@ -152,7 +152,7 @@ Func GetStones($g_bDebug = False)
 		_GDIPlus_BitmapDispose($hBitmap_full)
 	EndIf
 
-	$hBitmap_full = _CaptureRegion($g_hControl, 230, 535, 320, 640)
+	$hBitmap_full = _CaptureRegion($g_hControl, 100, 375, 300, 500)
 	If $hBitmap_full = -1 Then Return False
 	$PathTile = @ScriptDir & "\MainCode\Images\ZoomOut\ButtonStone.png"
 	$filename = @ScriptDir & "\Debug\" & $dd & "_" & $g_cmbSelectedInstance & "_GetStones_.png"
