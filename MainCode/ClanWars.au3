@@ -231,7 +231,7 @@ EndFunc   ;==>Return2MainVillage
 
 Func ClickClanWarsIcon($g_bDebug = False)
 	Local $TilePath = @ScriptDir & "\MainCode\Images\\WarButton\ClanWarsIcon.png", $LogText = "Waiting for CoC Clan Wars Window!", $defSimilarity = 0.92, $IsToClick = True
-	Return ImageDetection($g_hControl, 10, 490, 90, 651, $TilePath, $defSimilarity, $LogText, $IsToClick, 2500, $g_bDebug)
+	Return ImageDetection($g_hControl, 10, 400, 60, 470, $TilePath, $defSimilarity, $LogText, $IsToClick, 2500, $g_bDebug)
 EndFunc   ;==>ClickClanWarsIcon
 
 Func IsClanWarsWindow($g_bDebug = False)
