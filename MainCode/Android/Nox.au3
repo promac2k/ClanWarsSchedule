@@ -69,7 +69,7 @@ Func OpenEmulatorNox()
 		SetLog("Emulator Size: " & "[W]: " & $aPosClient[2] & "  [H]: " & $aPosClient[3])
 	EndIf
 
-	If Int($aPosClient[2]) <> 860 Or Int($aPosClient[3]) <> 732 Then
+	If Int($aPosClient[2]) <> 860 Or Int($aPosClient[3]) <> 644 Then
 		SetLog("Emulator ScreenSizes ERROR!!")
 		Return False
 	EndIf

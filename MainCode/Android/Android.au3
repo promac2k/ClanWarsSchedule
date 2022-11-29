@@ -28,6 +28,7 @@ EndFunc   ;==>GetAllInstances
 Func OpenGame($g_sEmulatorName, $g_bDebug = False)
 	; 4 Attemps with a small delay , just in Case
 
+	ConsoleWrite("Open Game with Image detection")
 	Local $TilePath = @ScriptDir & "\MainCode\Images\OpenCoC\GameIcon_" & $g_sEmulatorName & ".png", $LogText = "s] Waiting for CoC Main Window!", $defSimilarity = 0.92, $IsToClick = True
 
 	For $i = 0 To 3

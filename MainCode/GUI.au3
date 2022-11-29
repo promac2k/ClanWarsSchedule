@@ -91,7 +91,7 @@ EndFunc   ;==>InitialGUI
 
 Func GuiDebug()
 
-	$g_frmGuiDebug = GUICreate("DEBUG-IMAGE ONSCREEN @ PROMAC 2018 ", 860, 732, -1, -1, -1, $WS_EX_LAYERED)
+	$g_frmGuiDebug = GUICreate("DEBUG-IMAGE ONSCREEN @ PROMAC 2022 ", 860, 644, -1, -1, -1, $WS_EX_LAYERED)
 	GUISetIcon(@ScriptDir & "\MainCode\Lib\ImageSearch.dll", 1)
 	$g_lblDebugOnScreen = GUICtrlCreateLabel(" ::INFO:: ", 10, 10, -1, -1, -1, $GUI_WS_EX_PARENTDRAG)
 	GUISetBkColor(0xABCDEF)
