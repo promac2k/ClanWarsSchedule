@@ -31,7 +31,7 @@ Func StartClanWars($g_bDebug = False)
 	EndIf
 
 
-	_GUICtrlStatusBar_SetText($g_hStatusBar, "  ProMac @2018" & @TAB & $g_sEmulatorName & " v" & Execute("GetVersion" & $g_sEmulatorName & "()") & @TAB & "Started...", 0)
+	_GUICtrlStatusBar_SetText($g_hStatusBar, "  ProMac @2022" & @TAB & $g_sEmulatorName & " v" & Execute("GetVersion" & $g_sEmulatorName & "()") & @TAB & "Started...", 0)
 	Sleep(10000)
 
 	Local $ColorBootEmulator = [17, 28, 0x020202, 5]
@@ -51,6 +51,7 @@ Func StartClanWars($g_bDebug = False)
 
 	; ONSCREEN DEBUG - OPEN
 	If $g_bDebug And $g_frmGuiDebug = 0 Then
+		ConsoleWrite("Opening debug GUI 860*644")
 		GuiDebug()
 		Sleep(200)
 		MoveGUIDebug()
