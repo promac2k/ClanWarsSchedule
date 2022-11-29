@@ -12,6 +12,7 @@ Func SetLog($msg)
 	Local $Date = @YEAR & "-" & @MON & "-" & @MDAY
 	Local $Time = @HOUR & ":" & @MIN & ":" & @SEC
 	GUICtrlSetData($g_txtLog, $Date & " " & $Time & " - " & $msg & @CRLF, 1)
+	_ConsoleWrite($msg)
 EndFunc   ;==>SetLog
 
 
