@@ -64,9 +64,16 @@ EndFunc   ;==>_UIA_Debug
 
 
 Func MoveGUIDebug()
-
+	_ConsoleWrite(" ==== MoveGUIDebug ==== ")
 	If $g_frmGuiDebug = 0 then return
+
+	If Not GetChildWindowHandleNox() Then
+		Return
+	Endif
+
 	Local $aPos = WinGetPos($g_hControl, "")
+	_ConsoleWrite("$aPos: " & _ArrayToString($aPos))
+
 	If $g_sEmulatorName = "BlueStacks3" Then WinMove($g_frmGuiDebug, "", $aPos[0] - Abs($g_iEmulatorOffset[0] - 6), _
 			$aPos[1] - $g_iEmulatorOffset[1], _
 			860 + $g_iEmulatorOffset[0] - Abs($g_iEmulatorOffset[0] - 6), _

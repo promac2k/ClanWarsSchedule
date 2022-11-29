@@ -29,6 +29,8 @@ Func OpenEmulatorNox()
 	$g_hControl = 0
 	$g_sTitleParentWindow = ""
 
+	Sleep(5000)
+
 	; Small delay just to Window starts
 	SetLog("Wait a few seconds...")
 	For $i = 0 To 35
@@ -44,9 +46,9 @@ Func OpenEmulatorNox()
 			Setlog("[" & $i & "] Nox Child Window detected: " & $g_hControl)
 			ExitLoop
 		EndIf
-		if $i = 10 Then
+		If $i = 10 Then
 			$g_hControl = ControlGetHandle($g_hWnd, "QWidgetClassWindow", "[CLASS:Qt5QWindowIcon; INSTANCE:2]")
-		Endif
+		EndIf
 	Next
 
 	_ConsoleWrite('+ Window Handle: ' & $g_hWnd)
@@ -141,12 +143,19 @@ Func GetChildWindowHandleNox()
 		Local $hControl = ControlGetHandle($g_hWnd, "sub", "[CLASS:subWin; INSTANCE:1]")
 		If @error Then $hControl = ControlGetHandle($g_hWnd, "QWidgetClassWindow", "[CLASS:Qt5QWindowIcon; INSTANCE:2]")
 		If _WinAPI_IsWindow($hControl) Then
-			setlog("yes yes ")
-			If $g_hControl <> $hControl Then
-				$g_hControl = $hControl
+			Local $aPosClient = WinGetPos($g_hControl, "")
+			_ConsoleWrite("$aPosClient[3] is :" & $aPosClient[3])
+			If $aPosClient[3] = 644 Then
+				_ConsoleWrite("$hControl is a valid window!")
+				_ConsoleWrite("$g_hControl: " & $g_hControl & " $hControl: " & $hControl)
+				If $g_hControl <> $hControl Then
+					$g_hControl = $hControl
+				EndIf
 				Return True
 			EndIf
 		EndIf
+	Else
+		_ConsoleWrite("$g_hWnd is not a valid window!")
 	EndIf
 	Return False
 EndFunc   ;==>GetChildWindowHandleNox
